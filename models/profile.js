@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
 const profileSchema = new mongoose.Schema({
-    name: {
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
         type: String,
         required: true
     },
@@ -13,13 +17,17 @@ const profileSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    avatar: {
+        type: String,
+        required: true
+    },
     interests: [{
         type: String
     }],
-
     tags: [{
         type: String
     }]
+
 })
 
 module.exports = mongoose.model('Profile', profileSchema)

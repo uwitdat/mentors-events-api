@@ -19,10 +19,13 @@ router.get('/:id', getProfile, (req, res) => {
 //CREATE ONE
 router.post('/', async (req, res) => {
     const profile = new Profile({
-        name: req.body.name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         age: req.body.age,
-        interests: req.body.interests
+        avatar: req.body.avatar,
+        interests: req.body.interests,
+        tags: req.body.tags
     })
 
     try {
