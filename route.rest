@@ -1,0 +1,31 @@
+GET http://localhost:3001/profiles
+
+###
+
+GET http://localhost:3001/profiles/61022bf406342d45e5849b6f
+
+###
+
+POST http://localhost:3001/profiles
+Content-Type: application/json
+
+{
+    "name": "Ben",
+    "email": "ben@email.com",
+    "age": 28,
+    "interests": ["Guitar", "Programming", "Dog walking", "Working out"]
+}
+
+###
+
+DELETE http://localhost:3001/profiles/61022bca06342d45e5849b6b
+
+###
+
+PATCH http://localhost:3001/profiles/61022eb3a5afc44892882659
+Content-Type: application/json
+
+{
+    "name": "ben",
+    "email": "bigben@email.com"
+}
