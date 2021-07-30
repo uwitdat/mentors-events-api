@@ -7,28 +7,18 @@ GET http://localhost:3001/profiles/61022bf406342d45e5849b6f
 ###
 
 POST http://localhost:3001/profiles
-Content-Type: application/json
 
 
-{
-    "firstName": "Amy",
-    "lastName": "Jones",
-    "email": "amy@email.com",
-    "age": 26,
-    "avatar": "https://i2.wp.com/i.pinimg.com/736x/04/af/b4/04afb478522dfba11c89c10ab55b5c06.jpg",
-    "interests": ["Singing", "Dancing", "Partying", "Nachos"]
-}
 
 ###
 
-DELETE http://localhost:3001/profiles/6102ff1729117c373be39f07
+DELETE http://localhost:3001/profiles/610382953fb1c989fcabf555
 
 ###
 
-PATCH http://localhost:3001/profiles/61022eb3a5afc44892882659
+PATCH http://localhost:3001/profiles/61038a313fb1c989fcabf571
 Content-Type: application/json
 
-{
-    "name": "ben",
-    "email": "bigben@email.com"
-}
+    {
+        "firstName": "Brett"
+    }

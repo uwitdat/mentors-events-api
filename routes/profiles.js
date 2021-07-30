@@ -38,15 +38,16 @@ router.post('/', async (req, res) => {
 })
 
 //UPDATE ONE
-router.patch('/:id', getProfile, async (req, res) => {
-    if (req.body.name != null) {
-        res.profile.name = req.body.name
+router.patch('/:id', async (req, res) => {
+    profile = await Profile.findById(req.params.id)
+    if (req.body.firstName != null) {
+        profile.firstName = req.body.firstName
     }
-    if (req.body.email != null) {
-        res.profile.email = req.body.email
+    if (req.body.interests != null) {
+        profile.interests = req.body.interests
     }
     try {
-        const updatedProfile = await res.profile.save()
+        const updatedProfile = await profile.save()
         res.json(updatedProfile)
     } catch (err) {
         res.status(400).json({ message: err.message })
