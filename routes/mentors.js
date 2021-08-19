@@ -1,13 +1,23 @@
 const express = require('express')
 const router = express.Router()
-const Mentor = require('../models/profile')
+const Mentor = require('../models/mentor')
 const Event = require('../models/event')
 
 //GET ALL
 router.get('/', async (req, res) => {
     try {
-        const mentors = await Mentor.find()
+        const mentors = await Mentor.find().populate('events')
         res.json(mentors)
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+})
+
+router.get('/:id', async (req, res) => {
+    try {
+        const events = await Event.find({ mentorId: req.params.id })
+        console.log('QUERY=>', req.params.id)
+        res.json(events)
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
@@ -16,26 +26,40 @@ router.get('/', async (req, res) => {
 
 //CREATE ONE
 router.post('/', async (req, res) => {
-    const event = new Event({
-        eventName: req.body.eventName,
-        dateTime: req.body.dateTime,
-    })
-    const newEvent = await event.save()
 
     const mentor = new Mentor({
         name: req.body.name,
-        avatar: req.name.body.avatar,
+        avatar: req.body.avatar,
         creds: req.body.creds,
-        events: newEvent._id
     })
 
+    let newMentor;
     try {
-        const newMentor = await mentor.save()
+
+        for (const elm of req.body.events) {
+
+            const event = new Event({
+                eventName: elm.eventName,
+                dateTime: elm.dateTime,
+                mentorId: mentor._id
+            })
+            mentor.events = [...mentor.events, event]
+            try {
+                await event.save()
+
+                newMentor = await mentor.save()
+
+            } catch (err) {
+                res.status(400).json({ message: err.message })
+            }
+        }
         res.status(201).json(newMentor)
     } catch (err) {
         res.status(400).json({ message: err.message })
     }
 
 })
+
+
 
 module.exports = router

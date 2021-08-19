@@ -6,6 +6,28 @@ GET http://localhost:3001/mentors
 POST http://localhost:3001/mentors
 Content-Type: application/json
 
+{
+    "name": "Crestiwalt Andersen",
+    "avatar": "https://lh3.googleusercontent.com/proxy/Mm35ucgTDVpUgzzvMl-H89oai130mt9ovguSvuJ8CRLWt2hoLa7j-htupmR8xGwKRX8CIgCK09DYwpFJDtvv_Z4CKX41E1HYjXh0Ren0cnl03R6mwZ8LqJW-miu107xqRfg8DnAj6XG8https://lh3.googleusercontent.com/proxy/Mm35ucgTDVpUgzzvMl-H89oai130mt9ovguSvuJ8CRLWt2hoLa7j-htupmR8xGwKRX8CIgCK09DYwpFJDtvv_Z4CKX41E1HYjXh0Ren0cnl03R6mwZ8LqJW-miu107xqRfg8DnAj6XG8",
+    "creds": "BSc, Tech Guru",
+    "events": [
+        {
+            "eventName": "Where You Fit In Todays Job Marker",
+            "dateTime": "Sep 5st 2021 6:00PM" 
+        },
+        {
+            "eventName": "Your Degree & Western Science",
+            "dateTime": "Sep 9st 2021 12:30AM" 
+        },
+        {
+            "eventName": "Foundation Paving For New Residents",
+            "dateTime": "Aug 21st 2021 2:00PM" 
+        }
+    ]
+}
+
 
 ###
+
+GET http://localhost:3001/mentors/611dd43fd0e3efc68c51666e
 

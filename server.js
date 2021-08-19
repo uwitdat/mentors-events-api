@@ -17,10 +17,6 @@ db.once('open', () => console.log('Connected to DB'))
 
 app.use(express.json())
 
-// const profilesRouter = require('./routes/profiles')
-
-// app.use('/profiles', profilesRouter)
-
 const mentorsRouter = require('./routes/mentors')
 app.use('/mentors', mentorsRouter)
 

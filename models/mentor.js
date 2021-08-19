@@ -14,7 +14,11 @@ const mentorSchema = new mongoose.Schema({
         required: true
     },
     events: [
-        { type: mongoose.Schema.Types.ObjectId, ref: 'Event' }
+        {
+            type: mongoose.Schema.Types.ObjectId, ref: 'Event',
+            required: false
+        },
+
     ]
 
 })
