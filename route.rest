@@ -1,24 +1,11 @@
-GET http://localhost:3001/profiles
+GET http://localhost:3001/mentors
 
 ###
 
-GET http://localhost:3001/profiles/61022bf406342d45e5849b6f
 
-###
-
-POST http://localhost:3001/profiles
-
-
-
-###
-
-DELETE http://localhost:3001/profiles/610382953fb1c989fcabf555
-
-###
-
-PATCH http://localhost:3001/profiles/61038a313fb1c989fcabf571
+POST http://localhost:3001/mentors
 Content-Type: application/json
 
-    {
-        "firstName": "Brett"
-    }
+
+###
+

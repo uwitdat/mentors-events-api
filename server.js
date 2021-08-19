@@ -1,8 +1,5 @@
 require('dotenv').config()
 
-
-
-
 const express = require('express')
 const cors = require('cors')
 const app = express()
@@ -20,9 +17,12 @@ db.once('open', () => console.log('Connected to DB'))
 
 app.use(express.json())
 
-const profilesRouter = require('./routes/profiles')
+// const profilesRouter = require('./routes/profiles')
 
-app.use('/profiles', profilesRouter)
+// app.use('/profiles', profilesRouter)
+
+const mentorsRouter = require('./routes/mentors')
+app.use('/mentors', mentorsRouter)
 
 
 app.listen(3001, () => console.log('server running'))
